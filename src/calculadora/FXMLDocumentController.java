@@ -39,6 +39,9 @@ public class FXMLDocumentController implements Initializable {
     private Label label;
     @FXML
     private Button fxresto;
+    private static int contador;
+    @FXML
+    private Button fxlimpiar;
     
     @FXML
     private void sumar(ActionEvent event) {
@@ -46,7 +49,8 @@ public class FXMLDocumentController implements Initializable {
         Double num2 = Double.parseDouble(this.fxnumero2.getText());
         String suma = String.valueOf(num1+num2);
         this.fxresultado.setText(suma);
-        this.fxhistorico.appendText(suma);
+        this.contador++;
+        this.fxhistorico.appendText("Operacion " +contador+" -- La suma de " + num1+ " + " + suma + " = " + suma +  "\n");
     }
     
     @FXML 
@@ -55,6 +59,8 @@ public class FXMLDocumentController implements Initializable {
         Double num2 = Double.parseDouble(this.fxnumero2.getText());
         String porcentaje = String.valueOf(num1*(num2/100));
         this.fxresultado.setText(porcentaje);
+        contador++;
+        this.fxhistorico.appendText("Operacion " +contador+" -- El "+ num2+ "% de " + num1 + " = " + porcentaje +  "\n");
     }
     
     @FXML
@@ -63,6 +69,8 @@ public class FXMLDocumentController implements Initializable {
         Double num2 = Double.parseDouble(this.fxnumero2.getText());
         String elevar = String.valueOf(Math.pow(num1, num2));
         this.fxresultado.setText(elevar);
+        contador++;
+        this.fxhistorico.appendText("Operacion " +contador+" -- "+ num2+ " elevado a " + num1 + " = " + elevar +  "\n");
     }
     
     @FXML
@@ -71,7 +79,17 @@ public class FXMLDocumentController implements Initializable {
        Double num2 = Double.parseDouble(this.fxnumero2.getText());
        String resto = String.valueOf(num1%num2);
        this.fxresultado.setText(resto); 
+       contador++;
+       this.fxhistorico.appendText("Operacion " +contador+" -- El resto de dividir "+ num1+ " / " + num2 + " = " + resto +  "\n");
     }
+    
+      @FXML
+    private void limpiar(ActionEvent event)  {
+        this.fxnumero1.setText(null);
+        this.fxnumero2.setText(null);
+        this.fxresultado.setText(null);
+    }
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
