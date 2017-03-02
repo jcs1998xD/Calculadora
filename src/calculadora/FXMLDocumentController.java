@@ -20,7 +20,9 @@ import javafx.scene.control.TextField;
  * @author daw
  */
 public class FXMLDocumentController implements Initializable {
-
+   private static int contador;
+    
+   
     @FXML
     private TextField fxnumero1;
     @FXML
@@ -39,7 +41,6 @@ public class FXMLDocumentController implements Initializable {
     private Label label;
     @FXML
     private Button fxresto;
-    private static int contador;
     @FXML
     private Button fxlimpiar;
 
@@ -115,4 +116,6 @@ public class FXMLDocumentController implements Initializable {
         // TODO
     }
 
+    
+    
 }
